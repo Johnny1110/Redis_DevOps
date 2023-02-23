@@ -16,3 +16,20 @@
 2. [配置 啟動 操作 關閉 Redis](./basic/operate/README.md)
 
 3. [Docker 啟動 Redis](./basic/docker/README.md)
+
+4. [6 個基本全域指令](./basic/globalCommand/README.md)
+
+5. [5 種資料結構](./basic/dataStructure/README.md)
+
+6. [單執行緒架構](./basic/singleThread/README.md)
+
+<br>
+<br>
+
+## API
+
+<br>
+
+
+
+3
