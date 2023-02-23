@@ -50,4 +50,4 @@ lib文件 : `/usr/lib`
 <br>
 <br>
 
-Redis
+__Redis 版號偶數為穩定版，基數為測試版。__
