@@ -21,14 +21,30 @@
 
 5. [5 種資料結構](./basic/dataStructure/README.md)
 
+1. [key 管理](./basic/keyManagement/README.md)
+
 6. [單執行緒架構](./basic/singleThread/README.md)
 
 <br>
 <br>
 
-## API
+## 資料結構詳細介紹
 
 <br>
+
+1. [__字串 String__](./dataStructure/String/README.md)
+
+2. [__哈希 Hash__](./dataStructure/Hash/README.md)
+
+3. [__列表 List__](./dataStructure/List/README.md)
+
+4. [__集合 Set__](./dataStructure/Set/README.md)
+
+5. [__有序集合 Ordered Set__](./dataStructure/OrderedSet/README.md)
+
+<br>
+<br>
+
 
 
 
