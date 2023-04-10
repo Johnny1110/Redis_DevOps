@@ -19,9 +19,7 @@
 
 4. [6 個基本全域指令](./basic/globalCommand/README.md)
 
-5. [5 種資料結構](./basic/dataStructure/README.md)
-
-1. [key 管理](./basic/keyManagement/README.md)
+5. [key 管理](./basic/keyManagement/README.md)
 
 6. [單執行緒架構](./basic/singleThread/README.md)
 
@@ -32,15 +30,17 @@
 
 <br>
 
-1. [__字串 String__](./dataStructure/String/README.md)
+1.  [5 種資料結構](./dataStructure/intro/README.md)
 
-2. [__哈希 Hash__](./dataStructure/Hash/README.md)
+2. [__字串 String__](./dataStructure/String/README.md)
 
-3. [__列表 List__](./dataStructure/List/README.md)
+3. [__哈希 Hash__](./dataStructure/Hash/README.md)
 
-4. [__集合 Set__](./dataStructure/Set/README.md)
+4. [__列表 List__](./dataStructure/List/README.md)
 
-5. [__有序集合 Ordered Set__](./dataStructure/OrderedSet/README.md)
+5. [__集合 Set__](./dataStructure/Set/README.md)
+
+5. [__有序集合 ZSet__](./dataStructure/ZSet/README.md)
 
 <br>
 <br>
