@@ -1,4 +1,4 @@
-# key 管理
+# key 管理 (單一key，key 遷移，走訪 key，資料庫管理)
 
 <br>
 
@@ -257,9 +257,56 @@ OK
 
 ### `migrate`
 
+
 <br>
 
-`migrate host port key | "" destination-db timeout [copy] [replace] [keys key [key ...]]`
+`migrate` 是將 `dump` `restore` `del` 三個命令組合。__且具備原子性，不需要開啟多個 redis-cli。__，此外 `migrate` 命令的資料傳輸直接在源 Redis 和目標 Redis 上完成，目標 Redis 完成之後會發送 ok 給源 Redis，源 Redis 接收後根據 `migrate` 對應的選項來決定是否在源 Redis 上刪除對應的 key。
+
+<br>
+
+`migrate host port key|"" destination-db timeout [copy] [replace] [keys key [key ...]]`
+
+<br>
+
+參數介紹 ( `[]` 項目為選填 )
+
+`host` : 目標 Redis IP 位置。
+
+`port` : 目標 Redis port。
+
+`key|""` : 這個意思是要馬給一個 key，要馬給空字串。Redis 3.0.6 前只支援一次遷移一個 key，之後的版本可以一次遷移多個 key，若要一次遷移多個 key，`""` 內留空就可以，後面可以指定多個 key (看範例 2)。
+
+`destination-db` : 目標資料庫，例如要遷移到 0 號資料庫，就填入 0。
+
+`timeout` : 遷移超時時間(單位毫秒)。
+
+`[copy]` : 如果添加此項，遷移後源 Redis 不會刪除 key。
+
+`[replace]` : 如果添加此項，__目標 Redis 不管之前有沒有該 key，直接覆蓋__。
+
+`[keys key [key ...]]` : 遷移多個 key，例如要遷移 k1, k2, k3 則填入 `keys k1 k2 k3`。
+
+<br>
+
+範例 1 : 
+
+ 把 hello 這個 key 遷移到 127.0.0.1:6381 的 0 號資料庫，超時時間 1 秒 
+
+```
+127.0.0.1:6380> migrate 127.0.0.1 6381 hello 0 1000
+```
+
+<br>
+
+範例 2 : 
+
+把 k1 k2 k3 這幾個 key 遷移到 127.0.0.1:6381 的 0 號資料庫，超時時間 5 秒 
+
+
+```
+127.0.0.1:6380> migrate 127.0.0.1 6381 "" 0 5000 keys k1 k2 k3
+```
+
 
 <br>
 <br>
@@ -284,4 +331,4 @@ OK
 
 ## 資料庫管理
 
-<br>
+<br>ˊˊ

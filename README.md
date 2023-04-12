@@ -19,7 +19,7 @@
 
 4. [6 個基本全域指令](./basic/globalCommand/README.md)
 
-5. [key 管理](./basic/keyManagement/README.md)
+5. [key 管理 (單一key，key 遷移，走訪 key，資料庫管理)](./basic/keyManagement/README.md)
 
 6. [單執行緒架構](./basic/singleThread/README.md)
 
