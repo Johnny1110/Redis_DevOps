@@ -313,7 +313,7 @@ OK
 <br>
 <br>
 
-
+---
 
 <br>
 <br>
@@ -323,6 +323,82 @@ OK
 ## 走訪(遍歷)
 
 <br>
+
+Redis 有 2 個走訪 key 指令，分別是 `keys` 與 `scan`。
+
+<br>
+
+### 1. 全量 key 走訪 (`keys`)
+
+<br>
+
+`keys`  指令示範 : 
+```
+127.0.0.1:6380> keys *
+ 1) "python"
+ 2) "c"
+ 3) "key"
+ 4) "B"
+ 5) "A"
+ 6) "counter"
+ 7) "testDumpKey"
+ 8) "1"
+ 9) "hello"
+10) "java"
+```
+
+<br>
+
+`keys` 後面跟的是 pattern，pattern 可以有如下幾種：
+
+* `*` 代表匹配任何字元
+
+* `?` 代表匹配一個字元
+
+* `[ ]` 代表匹配部份字元，例如 `[1, 3]` 代表匹配 1, 3 ，`[1-10]` 代表匹配 1 ~ 10  任意數字。
+
+* `\x` 用來做轉義，例如要匹配字元 *，就可以輸入 `\*`
+
+<br>
+
+示範：
+
+```
+127.0.0.1:6380> mset video_1 aaa video_2 bbb video_3 ccc
+OK
+127.0.0.1:6380> keys video*
+1) "video_1"
+2) "video_3"
+3) "video_2"
+```
+
+<br>
+
+__如果今天 Redis 是只有少量的 key，要走訪 key 時使用 `keys` 指令 是 OK 的，但是遇到 Redis 有大量 key 存在時，執行 `keys` 命令會造成組塞。為了避免阻塞，可以改用 `scan` 指令。__ 
+
+<br>
+<br>
+
+### 2. 漸進式 key 走訪 (`scan`)
+
+<br>
+
+Redis 2.8 版本後，提供了 `scan` 指令，解決了大量 key 走訪時阻塞問題。
+
+`scan` 採用漸進式 key 走訪，要真正用 `scan` 實現 `keys` 的效果需要多次執行。Redis  儲存 key pair 實際使用的是 HashTable，簡化模型如下圖：
+
+<br>
+
+![p1](./imgs/p1.jpg)
+
+<br>
+
+<br>
+<br>
+<br>
+<br>
+
+---
 
 <br>
 <br>
